@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#products .card {
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+#products .card:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.list-group-item {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#cart-button {
+    margin-right: 10px;
+}
+
+#cart-count {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
