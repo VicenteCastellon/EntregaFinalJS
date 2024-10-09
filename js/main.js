@@ -13,13 +13,13 @@ const cartCount = document.getElementById('cart-count');
 // Cargar productos usando Fetch
 async function cargarProductos() {
     try {
-        const response = await fetch('./productos.json'); // Asegúrate de que esta ruta sea correcta
+        const response = await fetch('./productos.json'); 
         if (!response.ok) {
             throw new Error('Error al cargar los productos');
         }
         productos = await response.json(); 
-        console.log("Productos cargados correctamente:", productos); // Comprobación de la carga de productos
-        mostrarProductos(); // Mostrar los productos después de cargarlos
+        console.log("Productos cargados correctamente:", productos); 
+        mostrarProductos(); 
     } catch (error) {
         console.error('Error al cargar productos:', error);
     }
@@ -27,19 +27,19 @@ async function cargarProductos() {
 
 // Mostrar productos en el DOM
 function mostrarProductos() {
-    // Verificar si hay productos cargados
+    
     if (productos.length === 0) {
         console.error("No se encontraron productos para mostrar.");
         return;
     }
 
-    // Limpiar el contenedor antes de agregar productos
+    
     productsContainer.innerHTML = '';
 
     // Recorrer cada producto y agregarlo al contenedor
     productos.forEach(producto => {
         const productCard = document.createElement('div');
-        productCard.classList.add('col-md-4', 'mb-3'); // Bootstrap para diseño responsivo
+        productCard.classList.add('col-md-4', 'mb-3'); 
         productCard.innerHTML = `
             <div class="card h-100">
                 <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
@@ -87,7 +87,7 @@ function eliminarUnaInstanciaDelCarrito(idProducto) {
 
 // Actualizar carrito y calcular total
 function actualizarCarrito() {
-    cartItemsContainer.innerHTML = ''; // Limpiar contenedor del carrito
+    cartItemsContainer.innerHTML = ''; 
     let total = 0;
 
     const carritoAgrupado = carrito.reduce((acc, producto) => {
@@ -131,7 +131,7 @@ function guardarCarrito() {
 // Función para manejar el proceso de pago
 function procesarPago() {
     if (carrito.length === 0) {
-        // Mostrar mensaje de error si el carrito está vacío
+        
         Swal.fire({
             title: 'Carrito vacío',
             text: 'Por favor, agrega productos al carrito antes de proceder al pago.',
@@ -162,11 +162,11 @@ checkoutButton.addEventListener('click', procesarPago);
 
 // Inicializar
 function inicializar() {
-    cargarProductos(); // Cargar productos con Fetch
-    actualizarCarrito(); // Actualizar carrito si ya hay productos en localStorage
+    cargarProductos(); 
+    actualizarCarrito(); 
 }
 
-// Ejecutar la inicialización al cargar la página
+
 window.onload = inicializar;
 
 
